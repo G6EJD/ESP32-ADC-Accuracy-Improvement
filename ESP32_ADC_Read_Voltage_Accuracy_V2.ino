@@ -22,7 +22,7 @@ float ReadVoltage(byte ADC_Pin) {
   esp_adc_cal_characteristics_t adc_chars;
   esp_adc_cal_characterize(ADC_UNIT_1, ADC_ATTEN_DB_11, ADC_WIDTH_BIT_12, 1100, &adc_chars);
   vref = adc_chars.vref; // Obtain the device ADC reference voltage
-  return (analogRead(ADC_PIN) / 4095.0) * 3.3 * voltage_divider_offset * (1100 / vref) * calibration;  // ESP by design reference voltage in mV
+  return (analogRead(ADC_Pin) / 4095.0) * 3.3 * voltage_divider_offset * (1100 / vref) * calibration;  // ESP by design reference voltage in mV
 }
 
 // The esp_adc_cal/include/esp_adc_cal.h API provides functions to correct for differences
